@@ -1,0 +1,38 @@
+.nav {
+  left: 5%;
+  top: 2%;
+  width: 90vw;
+  height: 5rem;
+  display: flex;
+  border-radius: 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 2rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  position: fixed;
+}
+.nav div {
+  display: flex;
+  gap: 2rem;
+  color: #676a72;
+  font-weight: 600;
+}
+.nav div h4 {
+  cursor: pointer;
+}
+.nav div:nth-child(3) h4:nth-child(2) {
+  color: white;
+  background-color: #4b49ac;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+}
+.nav div:nth-child(3) h4:nth-child(1) {
+  color: #4b49ac;
+  border: 1px solid #b6b6b7;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+}

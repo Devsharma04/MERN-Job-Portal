@@ -1,0 +1,17 @@
+.cursorani {
+  height: 20px;
+  width: 20px;
+  background-color: #98bdff;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 9;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 800px) {
+  .cursorani {
+    display: none;
+  }
+}

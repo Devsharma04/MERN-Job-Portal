@@ -1,0 +1,166 @@
+.container {
+  max-width: 65rem;
+  height: 35rem;
+  display: flex;
+  flex-wrap: nowrap;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  z-index: 10;
+}
+.videoContainer {
+  width: 50%;
+  background-color: #4b49ac;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  text-align: center;
+  gap: 1rem;
+  font-weight: 600;
+  color: white;
+  z-index: 10;
+  border-radius: 10px;
+}
+video {
+  width: 200px;
+  height: 100px;
+}
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0.5rem;
+  width: 50%;
+  z-index: 10;
+  border-radius: 10px;
+  background-color: #fff;
+}
+.form label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.group {
+  display: flex;
+  justify-content: space-between;
+}
+.group2 {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin: 1rem;
+}
+
+.group2 input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+  height: 2rem;
+  border: 1px solid rgb(158, 158, 158);
+  border-radius: 5px;
+}
+.group3 {
+  display: flex;
+  gap: 0.5rem;
+  flex-direction: column;
+  margin: 1rem;
+}
+.pass {
+  display: flex;
+  border: 1px solid rgb(158, 158, 158);
+  border-radius: 5px;
+  height: 2rem;
+  font-size: 1rem;
+  padding: 0.5rem;
+  width: 100%;
+}
+.pass input {
+  font-size: 1rem;
+  width: 92%;
+  border: none;
+  outline: none;
+}
+.btn {
+  width: 6rem;
+  height: 3rem;
+  border-radius: 10px;
+  font-weight: 500;
+  background-color: #4b49ac;
+  color: white;
+  margin: 1rem;
+  transition: 0.2s;
+}
+.btn:hover {
+  box-shadow: 0 0 10px #133e87;
+  cursor: pointer;
+
+  scale: 1.02;
+}
+
+.form p {
+  font-size: 1rem;
+  font-weight: 500;
+  margin: 0rem 1rem;
+}
+p span {
+  font-weight: 500;
+  color: #133e87;
+  cursor: pointer;
+}
+
+.glow {
+  display: inline-block;
+  color: #4b49ac;
+}
+.glow:hover {
+  transition: 0.2s;
+  text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #133e87, 0 0 10px #133e87,
+    0 0 10px #133e87, 0 0 10px #133e87, 0 0 10px #133e87;
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 100%;
+    flex-wrap: wrap; /* Allow child elements to wrap */
+    flex-direction: column; /* Stack elements vertically */
+    width: 90%; /* Adjust width for smaller screens */
+    margin: 0 auto; /* Center the container */
+    box-shadow: none;
+  }
+  .videoContainer p {
+    display: none;
+  }
+  .videoContainer,
+  .form {
+    background-color: white;
+    width: 100%; /* Make each section take full width */
+    padding: 1rem; /* Add some padding for spacing */
+  }
+
+  video {
+    width: 50%; /* Make video responsive */
+    height: auto;
+  }
+
+  .btn {
+    width: 5rem; /* Full-width button */
+    height: 2rem; /* Adjust height */
+    font-size: 0.8rem; /* Adjust font size */
+  }
+
+  .form p {
+    text-align: center; /* Center-align text */
+  }
+}
+@media (max-width: 1024px) {
+  .container {
+    width: 90%; /* Adjust container width for tablets */
+    margin: 0 auto;
+  }
+
+  .videoContainer,
+  .form {
+    width: 100%; /* Make each section take full width */
+    padding: 1rem;
+  }
+}

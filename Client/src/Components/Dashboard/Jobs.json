@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "title": "Frontend Developer",
+    "company": "Tech Innovations Ltd.",
+    "location": "Remote",
+    "salary": "$70,000 - $90,000",
+    "type": "Full-time",
+    "description": "Looking for a skilled Frontend Developer with experience in React.js, CSS, and JavaScript.",
+    "requirements": [
+      "3+ years of experience",
+      "Proficiency in React.js",
+      "Strong knowledge of HTML, CSS, and JavaScript"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Backend Developer",
+    "company": "Code Masters Inc.",
+    "location": "New York, USA",
+    "salary": "$80,000 - $100,000",
+    "type": "Full-time",
+    "description": "Seeking a Backend Developer proficient in Node.js and MongoDB.",
+    "requirements": [
+      "3+ years of experience",
+      "Expertise in Node.js and Express.js",
+      "Database knowledge (MongoDB, PostgreSQL)"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "UI/UX Designer",
+    "company": "Creative Minds",
+    "location": "San Francisco, USA",
+    "salary": "$60,000 - $85,000",
+    "type": "Full-time",
+    "description": "We are looking for a UI/UX Designer to improve user experience on our web platform.",
+    "requirements": [
+      "2+ years of experience",
+      "Proficiency in Figma and Adobe XD",
+      "Understanding of user-centered design"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "DevOps Engineer",
+    "company": "Cloud Solutions",
+    "location": "Remote",
+    "salary": "$90,000 - $120,000",
+    "type": "Full-time",
+    "description": "Hiring a DevOps Engineer with experience in AWS, Docker, and Kubernetes.",
+    "requirements": [
+      "4+ years of experience",
+      "AWS and Docker expertise",
+      "CI/CD pipeline management"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Data Analyst",
+    "company": "Data Insights",
+    "location": "London, UK",
+    "salary": "£50,000 - £70,000",
+    "type": "Full-time",
+    "description": "Looking for a Data Analyst with experience in Python, SQL, and data visualization tools.",
+    "requirements": [
+      "3+ years of experience",
+      "Proficiency in Python and SQL",
+      "Experience with Tableau or Power BI"
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Software Engineer",
+    "company": "Innovatech Solutions",
+    "location": "Berlin, Germany",
+    "salary": "€65,000 - €85,000",
+    "type": "Full-time",
+    "description": "Seeking a Software Engineer skilled in full-stack development with JavaScript and Python.",
+    "requirements": [
+      "3+ years of experience",
+      "Full-stack development skills",
+      "Familiarity with Python and JavaScript frameworks"
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Cybersecurity Analyst",
+    "company": "SecureTech",
+    "location": "Remote",
+    "salary": "$85,000 - $110,000",
+    "type": "Full-time",
+    "description": "Hiring a Cybersecurity Analyst to improve system security and prevent cyber threats.",
+    "requirements": [
+      "4+ years of experience",
+      "Expertise in network security",
+      "Knowledge of penetration testing tools"
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Marketing Manager",
+    "company": "Digital Growth Ltd.",
+    "location": "Sydney, Australia",
+    "salary": "$70,000 - $95,000",
+    "type": "Full-time",
+    "description": "We are looking for a Marketing Manager to lead digital campaigns and brand strategy.",
+    "requirements": [
+      "5+ years of experience",
+      "SEO & PPC expertise",
+      "Strong knowledge of digital marketing strategies"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Machine Learning Engineer",
+    "company": "AI Labs",
+    "location": "Toronto, Canada",
+    "salary": "$95,000 - $130,000",
+    "type": "Full-time",
+    "description": "Looking for a Machine Learning Engineer to develop AI models for predictive analytics.",
+    "requirements": [
+      "3+ years of experience",
+      "Proficiency in Python and TensorFlow",
+      "Strong knowledge of AI algorithms"
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Project Manager",
+    "company": "Enterprise Solutions",
+    "location": "Dubai, UAE",
+    "salary": "$80,000 - $105,000",
+    "type": "Full-time",
+    "description": "Seeking a Project Manager to oversee IT projects and ensure timely delivery.",
+    "requirements": [
+      "5+ years of experience",
+      "PMP certification preferred",
+      "Strong organizational and leadership skills"
+    ]
+  }
+]
