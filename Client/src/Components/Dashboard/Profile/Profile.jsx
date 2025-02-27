@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import style from "../../../Css/Dashboard/ProfileCss/Profile.module.css";
+import style from "./Profile.module.css";
 import { FaPencil } from "react-icons/fa6";
 import { UserContext } from "../../../Context/UserDetailContext";
 import UpdateProfile from "./UpdateProfile";

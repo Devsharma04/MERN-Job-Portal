@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserDetailContext";
-import style from "../..//Css/Dashboard/Header.module.css";
+import style from "./Header.module.css";
 import JobDekho from "../../assets/JobDekho.mp4";
 import { FaSearch } from "react-icons/fa";
 import { HiBars3CenterLeft } from "react-icons/hi2";

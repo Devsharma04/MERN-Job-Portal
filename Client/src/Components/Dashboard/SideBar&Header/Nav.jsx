@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import style from "../../Css/Dashboard/Nav.module.css";
+import style from "./Nav.module.css";
 import { FaHome } from "react-icons/fa";
 import { RiNewspaperFill } from "react-icons/ri";
 import { ImProfile } from "react-icons/im";

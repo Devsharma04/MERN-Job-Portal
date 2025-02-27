@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import style from "../Css/Cursor.module.css";
+import style from "./Cursor.module.css";
 import { gsap } from "gsap";
 function CursorAnimation() {
   useEffect(() => {

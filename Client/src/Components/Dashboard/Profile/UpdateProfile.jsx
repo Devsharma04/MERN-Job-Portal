@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import style from "../../../Css/Dashboard/ProfileCss/UpdateProfile.module.css";
+import style from "./UpdateProfile.module.css";
 import Default from "../../../assets/userDefaultIMG.png";
 import axios from "axios";
 import { UserContext } from "../../../Context/UserDetailContext";

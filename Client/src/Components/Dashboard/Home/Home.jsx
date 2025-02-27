@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { UserContext } from "../../Context/UserDetailContext";
-import style from "../../Css/Dashboard/Home.module.css";
+import style from "./Home.module.css";
 import Jobs from "./Jobs.json";
 
 function Home() {

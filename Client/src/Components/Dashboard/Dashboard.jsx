@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Routes, Route, Outlet } from "react-router-dom";
-import Nav from "./Nav";
-import CursorAnimation from "../CursorAnimation";
-import Home from "./Home";
-import Header from "./Header";
+import Nav from "./SideBar&Header/Nav";
+import CursorAnimation from "../Animation/CursorAnimation";
+import Home from "./Home/Home";
+import Header from "./SideBar&Header/Header";
 import Profile from "./Profile/Profile";
 import Settings from "./Settings/Settings";
 import Application from "./Applications/Application";

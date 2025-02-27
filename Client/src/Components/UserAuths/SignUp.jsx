@@ -4,7 +4,7 @@ import style from "../../Css/UserAuths/SignInUp.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import CursorAnimation from "../CursorAnimation";
+import CursorAnimation from "../Animation/CursorAnimation";
 import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
 function Main() {

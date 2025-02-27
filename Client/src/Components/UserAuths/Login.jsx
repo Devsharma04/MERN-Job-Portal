@@ -3,7 +3,7 @@ import { useState, useContext } from "react";
 import { UserContext } from "../../Context/UserDetailContext";
 import Jobdekho from "../../assets/JobDekho.mp4";
 import { Link, useNavigate } from "react-router-dom";
-import CursorAnimation from "../CursorAnimation";
+import CursorAnimation from "../Animation/CursorAnimation";
 import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
 import toast from "react-hot-toast";

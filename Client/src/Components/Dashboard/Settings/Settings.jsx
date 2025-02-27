@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../../../Css/Dashboard/Setting.module.css";
+import style from "./Setting.module.css";
 function Settings() {
   return (
     <div className={style.container}>

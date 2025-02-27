@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import logos from "../assets/logos";
-import Style from "../Css/Parallax.module.css";
+import Style from "./Parallax.module.css";
 
 function Parallax() {
   const layerRef = useRef(null);

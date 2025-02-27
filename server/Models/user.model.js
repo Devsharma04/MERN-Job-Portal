@@ -36,7 +36,6 @@ const userSchema = mongoose.Schema(
     },
     OTP: {
       type: String,
-      default: null,
     },
     Role: {
       type: String,
