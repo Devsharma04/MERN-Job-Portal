@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./mainPage.module.css";
 import JobDekho from "../assets/JobDekho.mp4";
-import Parallax from "../Components/Parallax";
+import Parallax from "../Components/Animation/Parallax.jsx";
 function Home() {
   return (
     <>

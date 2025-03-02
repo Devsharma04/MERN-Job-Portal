@@ -4,6 +4,7 @@
   position: relative;
   display: flex;
   justify-content: center;
+  z-index: 9;
   align-items: center;
   flex-wrap: nowrap; /* Prevent wrapping on larger screens */
   gap: 2rem; /* Add a gap between sections */
@@ -57,6 +58,7 @@
 video {
   /* max-width: 100%; */
   height: auto;
+  z-index: 9;
 }
 .button::after,
 .button::before {

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import logos from "../assets/logos";
+import logos from "../../assets/logos";
 import Style from "./Parallax.module.css";
 
 function Parallax() {

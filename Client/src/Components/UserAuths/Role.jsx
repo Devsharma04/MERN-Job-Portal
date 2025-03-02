@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
-import style from "../../Css/UserAuths/Role.module.css";
-import CursorAnimation from "../CursorAnimation";
+import style from "./Role.module.css";
+import CursorAnimation from "../Animation/CursorAnimation";
 import Jobdekho from "../../assets/JobDekho.mp4";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -20,7 +20,7 @@ function Role() {
         }
       );
       toast.success(response.data.message);
-      navigate("/dashboard");
+      navigate(response.data.redirect);
     } catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
     }

@@ -1,4 +1,4 @@
-import style from "../../Css/UserAuths/Main.module.css";
+import style from "./Main.module.css";
 import logos from "../../assets/logos.js";
 import SignUp from "./SignUp.jsx";
 import Login from "./Login.jsx";

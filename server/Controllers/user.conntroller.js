@@ -122,7 +122,7 @@ const userpasswordreset = async (req, res) => {
     });
   }
 };
-
+///////////////////////////////////////////////// user login///////////////
 const userLogin = async (req, res) => {
   const { email, loginpassword } = req.body;
   if (!email || !loginpassword) {
@@ -156,14 +156,17 @@ const userLogin = async (req, res) => {
 
   res.set("Authorization", `Bearer ${token}`);
 
-  if (user.Role) {
+  if (user.Role === "Job Seaker") {
     res.status(200).json({
       redirect: `/dashboard`,
+    });
+  } else if (user.Role === "Recuiter") {
+    res.status(200).json({
+      redirect: `/RecuterDashboard`,
     });
   } else {
     res.status(200).json({
       redirect: `/Role`,
-      userRoleApi: `http://localhost:3000/api/userRole/${_id}`,
     });
   }
 };

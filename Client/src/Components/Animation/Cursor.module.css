@@ -4,7 +4,7 @@
   background-color: #98bdff;
   border-radius: 50%;
   position: absolute;
-  z-index: 9;
+  z-index: 1;
   top: 0;
   left: 0;
   pointer-events: none;

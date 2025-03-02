@@ -1,4 +1,4 @@
-import style from "../../Css/UserAuths/SignInUp.module.css";
+import style from "./SignInUp.module.css";
 import { useState, useContext } from "react";
 import { UserContext } from "../../Context/UserDetailContext";
 import Jobdekho from "../../assets/JobDekho.mp4";

@@ -5,6 +5,7 @@ import VerificationFailed from "./MailComponents/VerificationFailed";
 import ForgotPass from "./UserAuths/ForgotPass";
 import Role from "./UserAuths/Role";
 import Dashboard from "./Dashboard/Dashboard";
+import RecuterDashboard from "./RecuterDashboard/RecDashboard";
 import Test from "./test";
 
 function AllPages() {
@@ -23,6 +24,7 @@ function AllPages() {
       <Route path="/ForgotPass" element={<ForgotPass />}></Route>
       <Route path="/Role" element={<Role />}></Route>
       <Route path="/dashboard/*" element={<Dashboard />}></Route>
+      <Route path="/RecuterDashboard/*" element={<RecuterDashboard />}></Route>
 
       <Route path="/test" element={<Test />}></Route>
     </Routes>

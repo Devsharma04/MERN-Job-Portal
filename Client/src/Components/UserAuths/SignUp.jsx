@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Jobdekho from "../../assets/JobDekho.mp4";
-import style from "../../Css/UserAuths/SignInUp.module.css";
+import style from "./SignInUp.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";

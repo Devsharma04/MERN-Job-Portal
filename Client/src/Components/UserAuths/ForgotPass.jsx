@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate, Link } from "react-router-dom";
-import CursorAnimation from "../CursorAnimation";
+import CursorAnimation from "../Animation/CursorAnimation";
 function ForgotPass() {
   // const navigate = useNavigate();
   const [step, setStep] = useState("initial"); // initial loading otp newpassword

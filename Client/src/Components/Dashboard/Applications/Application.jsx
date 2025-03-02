@@ -1,5 +1,5 @@
 import React from "react";
-import style from "../Application.module.css";
+import style from "./Application.module.css";
 function Application() {
   return (
     <div className={style.container}>

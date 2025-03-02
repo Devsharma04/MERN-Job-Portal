@@ -12,6 +12,7 @@ import {
   getData,
   profileUpdate,
 } from "../Controllers/user.conntroller.js";
+import { createJob } from "../Controllers/jobs.controller.js";
 import asyncHandler from "../Utils/asyncHandler.js";
 
 export const routes = express.Router();
@@ -36,6 +37,7 @@ routes.post(
   ]),
   asyncHandler(profileUpdate)
 );
+routes.post("/createJob", userAuth, asyncHandler(createJob));
 routes.post("/testing", (req, res) => {
   const token = jwt.sign({ email: "itsmedev03@gmail.com" }, "dev1234", {
     expiresIn: "1d",
