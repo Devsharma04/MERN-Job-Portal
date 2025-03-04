@@ -41,6 +41,18 @@ const userSchema = mongoose.Schema(
       type: String,
       default: null,
     },
+    jobsCreated: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Jobs",
+      },
+    ],
+    appliedJobs: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Jobs",
+      },
+    ],
     profile: {
       bio: { type: String },
       skills: [{ type: String }],

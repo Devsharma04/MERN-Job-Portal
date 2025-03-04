@@ -1,81 +1,159 @@
+/* Main Container */
 .container {
-  margin-top: 50px;
   width: 100%;
-  height: 100%;
   padding: 2rem;
+  display: flex;
+  margin-top: 3rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Heading Section */
+.heading {
+  text-align: center;
+  margin-bottom: 2rem;
+  z-index: 1;
+  cursor: none;
 }
 
 .heading h1 {
-  color: black;
   font-size: 2rem;
-  font-weight: 700;
-}
-
-.heading p {
-  color: rgb(80, 80, 80);
-  font-size: 1rem;
-}
-
-.cardcontainer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 3rem;
-}
-
-.cards {
-  width: 18rem;
-  padding: 1.5rem;
-  border-radius: 12px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  text-align: center;
-}
-
-.cards:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-}
-
-.title {
-  font-size: 1.2rem;
   font-weight: bold;
   color: #333;
 }
 
-.company {
+.heading p {
   font-size: 1rem;
   color: #555;
-  font-weight: 600;
+}
+.noJobs {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Cards Grid */
+.cardContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 1200px;
+  justify-content: center;
+}
+
+/* Job Card */
+.card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.title {
+  font-size: 1.2rem;
+  color: #0073e6;
+  margin-bottom: 0.5rem;
+}
+
+.company {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
 }
 
 .location {
   font-size: 0.9rem;
-  color: #777;
+  color: #555;
+  margin-bottom: 0.5rem;
 }
 
 .salary {
   font-size: 1rem;
-  color: #4b49ac;
   font-weight: bold;
-  margin-top: 0.5rem;
+  color: #222;
+  margin-bottom: 0.5rem;
 }
 
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+/* Apply Button */
 .applyBtn {
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
   background-color: #4b49ac;
   color: white;
+  padding: 0.5rem 1rem;
   font-size: 1rem;
-  font-weight: 600;
   border: none;
-  border-radius: 6px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.2s ease-in-out;
+  transition: background 0.3s ease;
 }
 
 .applyBtn:hover {
-  background-color: #3a3791;
+  background-color: #3b3987;
+}
+.appliedBtn {
+  background-color: #4b49ac;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.appliedBtn:hover {
+  background-color: #3a378b;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .heading h1 {
+    font-size: 1.8rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .applyBtn {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading h1 {
+    font-size: 1.5rem;
+  }
+
+  .heading p {
+    font-size: 0.9rem;
+  }
+
+  .cardContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 0.8rem;
+  }
 }

@@ -2,6 +2,7 @@
 import User from "../Models/user.model.js";
 import bcrypt from "bcrypt";
 import SendEmail from "../Utils/mailer.js";
+import Jobs from "../Models/jobs.model.js";
 import crypto from "crypto";
 import { mailverfytemp, resetpasswordtemp } from "../Templates/mailtemp.js";
 import customError from "../Utils/customError.js";
@@ -55,7 +56,7 @@ const userSignup = async (req, res) => {
     user: newUser,
   });
 };
-
+//////////////////////////////////////////////////////////////////////////////
 const userMailVerification = async (req, res) => {
   const { id, emailtoken } = req.params; //token from params
 
@@ -78,7 +79,7 @@ const userMailVerification = async (req, res) => {
     throw new customError(400, "mail verification failed");
   }
 };
-
+////////////////////////////////////////////////////////////////////////////////////////
 const userpasswordreset = async (req, res) => {
   const { email, OTP, password } = req.body;
 
@@ -170,7 +171,7 @@ const userLogin = async (req, res) => {
     });
   }
 };
-
+/////////////////////////////////////////////////////////////////////////////////
 const userRole = async (req, res) => {
   const { id } = req.user;
   const { role } = req.body;
@@ -190,7 +191,7 @@ const userRole = async (req, res) => {
     message: "user role updated successfully",
   });
 };
-
+////////////////////////////////////////////////////////////////////////////////////
 const getData = async (req, res) => {
   const { id } = req.user;
   const user = await User.findOne({ _id: id });
@@ -209,7 +210,7 @@ const getData = async (req, res) => {
     img: user.profile.profilepic,
   });
 };
-
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const profileUpdate = async (req, res) => {
   try {
     const { id } = req.user;
@@ -268,7 +269,36 @@ const profileUpdate = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+////////////////////////////////////////////////////////////////////////////////////////////////
 
+const ShowJobs = async (req, res) => {
+  const { id } = req.user;
+  const user = await User.findById(id);
+  try {
+    const getData = await Jobs.find();
+
+    if (!getData || getData.length === 0) {
+      return res.status(404).json({ message: "No jobs found" });
+    }
+
+    res.status(200).json({ getData, appliedJobs: user.appliedJobs });
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+};
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+const applications = async (req, res) => {
+  const { id } = req.user;
+  const user = await User.findById(id);
+  if (!user) {
+    res.status(404).json({ message: "user not found" });
+    throw new customError(404, "user not found");
+  }
+  const applications = await User.findById(id).populate("appliedJobs");
+  res.status(200).json(applications.appliedJobs);
+};
 export {
   userSignup,
   userMailVerification,
@@ -277,4 +307,6 @@ export {
   userRole,
   getData,
   profileUpdate,
+  ShowJobs,
+  applications,
 };

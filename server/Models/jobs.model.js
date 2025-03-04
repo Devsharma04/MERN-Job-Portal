@@ -22,16 +22,13 @@ const jobSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    createdBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
+    CreatedBy: {
+      type: String,
+      required: true,
     },
-    applicants: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "User",
-      },
-    ],
+    applicants: {
+      type: String,
+    },
   },
   { timestamps: true }
 );

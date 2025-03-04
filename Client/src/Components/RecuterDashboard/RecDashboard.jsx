@@ -4,6 +4,7 @@ import CursorAnimation from "../Animation/CursorAnimation";
 import CreateJob from "./CreateJob/CreateJob";
 import Nav from "./SideBar&Header/Nav";
 import Header from "./SideBar&Header/Header";
+import Createdjobs from "./CreatedJobs/Createdjobs";
 function Dashboard() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
@@ -15,8 +16,10 @@ function Dashboard() {
 
       <div className="flex-1">
         <Routes>
-          <Route index element={<CreateJob />} />
+          <Route index element={<Createdjobs />} />
           <Route path="/CreateJob" element={<CreateJob />} />
+          <Route path="/CreatedJobs" element={<Createdjobs />} />
+          <Route path="/CreatedJobs" element={<Createdjobs />} />
         </Routes>
         <Outlet />
       </div>

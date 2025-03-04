@@ -1,10 +1,51 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../../Context/UserDetailContext";
 import style from "./Home.module.css";
-import Jobs from "../Jobs.json";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 function Home() {
   const { data } = useContext(UserContext);
+  const [Jobs, setJobs] = useState([]);
+  const [appliedJobs, setAppliedJobs] = useState([]);
+
+  const getAllJobs = async () => {
+    try {
+      const response = await axios.get("http://localhost:3000/api/alljobs", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        },
+      });
+      setJobs(response.data.getData);
+      setAppliedJobs(response.data.appliedJobs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const applyJob = async (id) => {
+    try {
+      const response = await axios.post(
+        `http://localhost:3000/api/apply/${id}`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
+
+      toast.success(response.data.message);
+      getAllJobs();
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data?.message || "An error occurred");
+    }
+  };
+
+  useEffect(() => {
+    getAllJobs();
+  }, []);
 
   return (
     <div className={style.container}>
@@ -14,18 +55,31 @@ function Home() {
           Here are your top job recommendations based on your profile and goals
         </p>
       </div>
-      <div className={style.cardcontainer}>
-        {Jobs.map((details, index) => {
-          return (
-            <div key={index} className={style.cards}>
+
+      <div className={style.cardContainer}>
+        {Jobs.length === 0 ? (
+          <p className={style.noJobs}>No jobs are currently available</p>
+        ) : (
+          Jobs.map((details, index) => (
+            <div key={index} className={style.card}>
               <h1 className={style.title}>{details.title}</h1>
               <h2 className={style.company}>{details.company}</h2>
               <p className={style.location}>{details.location}</p>
-              <h4 className={style.salary}>{details.salary}</h4>
-              <button className={style.applyBtn}>Apply Now</button>
+              <h4 className={style.salary}>Salary: {details.Salary}</h4>
+              <p className={style.description}>{details.description}</p>
+              {appliedJobs.includes(details._id) ? (
+                <button className={style.appliedBtn}>Applied</button>
+              ) : (
+                <button
+                  className={style.applyBtn}
+                  onClick={() => applyJob(details._id)}
+                >
+                  Apply Now
+                </button>
+              )}
             </div>
-          );
-        })}
+          ))
+        )}
       </div>
     </div>
   );

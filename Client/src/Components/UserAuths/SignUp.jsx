@@ -103,7 +103,7 @@ function Main() {
             Already have an account ?{" "}
             <Link to="/login">
               {" "}
-              <span className={style.glow}>Sign in</span>
+              <span className={style.glow}>Log in</span>
             </Link>
           </p>
         </form>

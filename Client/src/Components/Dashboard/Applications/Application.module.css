@@ -1,14 +1,120 @@
+/* Container styling */
 .container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  padding: 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: auto;
+  margin-top: 4rem;
 }
 
-.application {
-  font-size: 2rem;
-  font-weight: 600;
+/* Heading styling */
+.heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Message when no applications are found */
+.noApplications {
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 20px;
+}
+
+/* Flex container for job application cards */
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Individual job application card */
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 350px;
+  text-align: left;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Styling for job details */
+.company {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #4b49ac;
+}
+
+.role {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.location,
+.salary,
+.description {
+  font-size: 1rem;
+  color: #666;
+}
+
+strong {
+  color: #333;
+}
+
+/* 📱 Mobile responsiveness */
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .company {
+    font-size: 1.2rem;
+  }
+
+  .role {
+    font-size: 1rem;
+  }
+
+  .location,
+  .salary,
+  .description {
+    font-size: 0.9rem;
+  }
+}
+
+/* 📱 Tablet responsiveness */
+@media (max-width: 900px) {
+  .cardContainer {
+    gap: 15px;
+  }
+
+  .card {
+    max-width: 80%;
+  }
+}
+
+/* 🖥️ Large screens */
+@media (min-width: 1200px) {
+  .card {
+    max-width: 300px;
+  }
 }

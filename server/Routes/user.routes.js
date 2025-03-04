@@ -11,8 +11,15 @@ import {
   userRole,
   getData,
   profileUpdate,
+  ShowJobs,
+  applications,
 } from "../Controllers/user.conntroller.js";
-import { createJob } from "../Controllers/jobs.controller.js";
+import {
+  createJob,
+  createdJobs,
+  applyJobController,
+  deleteJob,
+} from "../Controllers/jobs.controller.js";
 import asyncHandler from "../Utils/asyncHandler.js";
 
 export const routes = express.Router();
@@ -28,6 +35,7 @@ routes.post("/reset-password", asyncHandler(userpasswordreset));
 routes.post("/login", asyncHandler(userLogin));
 routes.post("/role", userAuth, asyncHandler(userRole));
 routes.get("/getData", userAuth, asyncHandler(getData));
+routes.get("/alljobs", userAuth, asyncHandler(ShowJobs));
 routes.post(
   "/profileUpdate",
   userAuth,
@@ -38,18 +46,19 @@ routes.post(
   asyncHandler(profileUpdate)
 );
 routes.post("/createJob", userAuth, asyncHandler(createJob));
-routes.post("/testing", (req, res) => {
-  const token = jwt.sign({ email: "itsmedev03@gmail.com" }, "dev1234", {
-    expiresIn: "1d",
-  });
-  res.set("Authorization", `Bearer ${token}`);
-  res.send(`Auth set successfully`);
-});
-routes.post("/test", userAuth, (req, res) => {
-  // const { email } = req.user;
-  // res.send(`welcome${email}`);
-  res.send("welcome");
-});
+routes.get("/createdJobs", userAuth, asyncHandler(createdJobs));
+// routes.post("/testing", (req, res) => {
+//   const token = jwt.sign({ email: "itsmedev03@gmail.com" }, "dev1234", {
+//     expiresIn: "1d",
+//   });
+//   res.set("Authorization", `Bearer ${token}`);
+//   res.send(`Auth set successfully`);
+// });
+// routes.post("/test", userAuth, (req, res) => {
+//   // const { email } = req.user;
+//   // res.send(`welcome${email}`);
+//   res.send("welcome");
+// });
 
 // --------------------------------------
 
@@ -57,3 +66,8 @@ routes.post("/upload", upload.single("file"), (req, res) => {
   console.log(req.file);
   res.send("file upload");
 });
+
+/////////////////////////
+routes.post("/apply/:jobId", userAuth, asyncHandler(applyJobController));
+routes.delete("/deletejob/:jobId", userAuth, asyncHandler(deleteJob));
+routes.get("/applications", userAuth, asyncHandler(applications));

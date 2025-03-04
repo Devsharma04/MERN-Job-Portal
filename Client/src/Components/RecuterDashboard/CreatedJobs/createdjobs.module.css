@@ -1,0 +1,129 @@
+/* Container styling */
+.container {
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+/* Heading */
+.heading {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+/* Job List - Responsive Grid */
+.jobsList {
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+/* Individual Job Card */
+.jobCard {
+  background: white;
+
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.jobCard:hover {
+  transform: translateY(-5px);
+}
+
+.jobCard h3 {
+  font-size: 1.3rem;
+  color: #0073e6;
+  margin-bottom: 0.5rem;
+}
+
+.jobCard p {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.jobCard button {
+  color: #0073e6;
+  font-weight: 600;
+}
+.jobCard button:nth-child(2) {
+  color: red;
+  font-weight: 600;
+}
+/* Job description */
+.description {
+  font-size: 0.95rem;
+  color: #777;
+  margin-top: 1rem;
+}
+
+/* Message when no jobs are available */
+.noJobs {
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* 🔥 Responsive Design */
+
+/* Tablets & Small Screens (768px - 1024px) */
+@media (max-width: 1024px) {
+  .jobsList {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .heading {
+    font-size: 1.8rem;
+  }
+
+  .jobCard {
+    padding: 1.2rem;
+  }
+}
+
+/* Mobile Devices (up to 767px) */
+@media (max-width: 767px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .heading {
+    font-size: 1.6rem;
+  }
+
+  .jobsList {
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .jobCard {
+    padding: 1rem;
+  }
+
+  .jobCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .jobCard p {
+    font-size: 0.9rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+}
