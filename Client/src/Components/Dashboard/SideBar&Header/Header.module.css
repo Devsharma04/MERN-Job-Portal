@@ -47,6 +47,67 @@
   border-radius: 50%;
   object-fit: cover;
 }
+.profileContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.notificationIcon {
+  font-size: 1.5rem;
+}
+
+.profileImg {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.profileImg:hover {
+  transform: scale(1.1);
+}
+
+.dropdown {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  width: 120px;
+  text-align: center;
+  z-index: 100;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  pointer-events: none;
+}
+
+/* Show Dropdown with Smooth Transition */
+.dropdown.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown button {
+  background: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.3s ease;
+}
+
+.dropdown button:hover {
+  background: #c82333;
+}
 
 @media (max-width: 768px) {
   .videoContainer {

@@ -299,6 +299,9 @@ const applications = async (req, res) => {
   const applications = await User.findById(id).populate("appliedJobs");
   res.status(200).json(applications.appliedJobs);
 };
+
+//logout///
+
 export {
   userSignup,
   userMailVerification,

@@ -57,7 +57,7 @@ const applyJobController = async (req, res) => {
   const { id } = req.user;
   // add job id to user's applied job's field
   const user = await User.findById(id);
-  if (!user.appliedJobs.includes(jobId)) {
+  if (user.appliedJobs.includes(jobId)) {
     res.status(400).json({ message: "job already applied" });
   }
 

@@ -7,10 +7,9 @@ import { ImProfile } from "react-icons/im";
 import { IoSettings } from "react-icons/io5";
 import { BiSolidHelpCircle } from "react-icons/bi";
 import { FaSignOutAlt } from "react-icons/fa";
-import { useGSAP } from "@gsap/react";
+
 function Nav({ isNavOpen }) {
   const [color, setColor] = useState(1);
-  useGSAP(() => {});
 
   return (
     <>
@@ -76,15 +75,6 @@ function Nav({ isNavOpen }) {
             <h1 className="flex items-center gap-8">
               <BiSolidHelpCircle />
               Contact Us
-            </h1>
-          </div>
-          <div
-            className={color === 6 ? style.active : style.btn}
-            onClick={() => setColor(6)}
-          >
-            <h1 className="flex items-center gap-8">
-              <FaSignOutAlt />
-              Sign Out
             </h1>
           </div>
         </div>
