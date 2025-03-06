@@ -30,7 +30,7 @@
 /* Individual Job Card */
 .jobCard {
   background: white;
-
+  z-index: 1;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 10px;

@@ -27,7 +27,6 @@ const userSchema = mongoose.Schema(
 
     emailToken: {
       type: String,
-      default: null,
     },
 
     isMailVerified: {

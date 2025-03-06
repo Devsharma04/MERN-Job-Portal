@@ -7,6 +7,7 @@ import Header from "./SideBar&Header/Header";
 import Profile from "./Profile/Profile";
 import Settings from "./Settings/Settings";
 import Application from "./Applications/Application";
+import Contact from "../Contact Us/ContactUs";
 
 function Dashboard() {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -24,6 +25,7 @@ function Dashboard() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/applications" element={<Application />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/ContactUs" element={<Contact />} />
         </Routes>
         <Outlet />
       </div>

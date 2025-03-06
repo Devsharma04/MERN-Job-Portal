@@ -5,6 +5,7 @@ import SendEmail from "../Utils/mailer.js";
 import Jobs from "../Models/jobs.model.js";
 import crypto from "crypto";
 import { mailverfytemp, resetpasswordtemp } from "../Templates/mailtemp.js";
+import contactUsTemp from "../Templates/contactUs.temp..js";
 import customError from "../Utils/customError.js";
 import jwt from "jsonwebtoken";
 import { v2 as cloudinary } from "cloudinary";
@@ -187,6 +188,15 @@ const userRole = async (req, res) => {
 
   user.Role = role;
   await user.save();
+  if (role === "Job Seaker") {
+    res.status(200).json({
+      redirect: `/dashboard`,
+    });
+  } else if (role === "Recuiter") {
+    res.status(200).json({
+      redirect: `/RecuterDashboard`,
+    });
+  }
   res.status(200).json({
     message: "user role updated successfully",
   });
@@ -300,7 +310,13 @@ const applications = async (req, res) => {
   res.status(200).json(applications.appliedJobs);
 };
 
-//logout///
+const contactUs = async (req, res) => {
+  const { name, email, message } = req.body;
+  const emailtemp = contactUsTemp(name, email, message);
+  SendEmail(email, "Contact Us", emailtemp);
+
+  res.status(200).json({ message: "Email sent successfully" });
+};
 
 export {
   userSignup,
@@ -312,4 +328,5 @@ export {
   profileUpdate,
   ShowJobs,
   applications,
+  contactUs,
 };

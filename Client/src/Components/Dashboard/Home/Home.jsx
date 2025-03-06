@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 function Home() {
-  const { data } = useContext(UserContext);
+  const { data, search } = useContext(UserContext);
   const [Jobs, setJobs] = useState([]);
   const [appliedJobs, setAppliedJobs] = useState([]);
 
@@ -18,6 +18,7 @@ function Home() {
       });
       setJobs(response.data.getData);
       setAppliedJobs(response.data.appliedJobs);
+      console.log(Jobs);
     } catch (error) {
       console.log(error);
     }
@@ -43,6 +44,13 @@ function Home() {
     }
   };
 
+  const filteredJobs = Jobs.filter(
+    (job) =>
+      job.position?.toLowerCase().includes(search) ||
+      job.company?.toLowerCase().includes(search)
+  );
+  const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : Jobs;
+
   useEffect(() => {
     getAllJobs();
   }, []);
@@ -57,12 +65,12 @@ function Home() {
       </div>
 
       <div className={style.cardContainer}>
-        {Jobs.length === 0 ? (
+        {jobToDisplay.length === 0 ? (
           <p className={style.noJobs}>No jobs are currently available</p>
         ) : (
-          Jobs.map((details, index) => (
+          jobToDisplay.map((details, index) => (
             <div key={index} className={style.card}>
-              <h1 className={style.title}>{details.title}</h1>
+              <h1 className={style.title}>{details.position}</h1>
               <h2 className={style.company}>{details.company}</h2>
               <p className={style.location}>{details.location}</p>
               <h4 className={style.salary}>Salary: {details.Salary}</h4>

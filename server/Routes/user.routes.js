@@ -13,6 +13,7 @@ import {
   profileUpdate,
   ShowJobs,
   applications,
+  contactUs,
 } from "../Controllers/user.conntroller.js";
 import {
   createJob,
@@ -71,3 +72,4 @@ routes.post("/upload", upload.single("file"), (req, res) => {
 routes.post("/apply/:jobId", userAuth, asyncHandler(applyJobController));
 routes.delete("/deletejob/:jobId", userAuth, asyncHandler(deleteJob));
 routes.get("/applications", userAuth, asyncHandler(applications));
+routes.post("/contactUs", asyncHandler(contactUs));

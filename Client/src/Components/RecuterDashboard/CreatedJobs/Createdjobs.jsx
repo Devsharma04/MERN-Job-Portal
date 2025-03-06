@@ -1,27 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useContext, useState } from "react";
 import style from "./Createdjobs.module.css";
-
+import { UserContext } from "../../../Context/UserDetailContext";
+import Applicants from "../Applicants/Applicants";
 function Createdjobs() {
-  const [data, setData] = useState([]);
-  const fetchUserData = async () => {
-    const token = localStorage.getItem("authToken");
-    if (!token) return;
-    try {
-      const response = await axios.get(
-        "http://localhost:3000/api/CreatedJobs",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setData(response.data);
-      console.log(data);
-    } catch (error) {
-      console.error("Error fetching Jobs:", error);
-    }
-  };
+  const { jobData, fetchJobData, search } = useContext(UserContext);
+  const [Modal, setModal] = useState(false);
+  const [applicant, setApplicants] = useState([]);
 
   const deleteJob = async (jobId) => {
     const token = localStorage.getItem("authToken");
@@ -38,14 +23,22 @@ function Createdjobs() {
     }
   };
   useEffect(() => {
-    fetchUserData();
+    fetchJobData();
   }, []);
+
+  const filteredJobs = jobData.filter(
+    (job) =>
+      job.position?.toLowerCase().includes(search) ||
+      job.company?.toLowerCase().includes(search)
+  );
+  const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : jobData;
+
   return (
     <div className={style.container}>
       <h2 className={style.heading}>Jobs Created by You</h2>
 
       <div className={style.jobsList}>
-        {data.map((job) => (
+        {jobToDisplay.map((job) => (
           <div key={job._id} className={style.jobCard}>
             <h3> {job.position}</h3>
 
@@ -66,12 +59,20 @@ function Createdjobs() {
               {job.description}
             </p>
             <p>
-              <button>Applicants</button>
+              <button
+                onClick={() => {
+                  setApplicants(job.applicants);
+                  setModal(true);
+                }}
+              >
+                Applicants {job.applicants?.length}
+              </button>
               <button onClick={() => deleteJob(job._id)}>Delete</button>
             </p>
           </div>
         ))}
       </div>
+      {Modal && <Applicants setModal={setModal} applicant={applicant} />}
     </div>
   );
 }

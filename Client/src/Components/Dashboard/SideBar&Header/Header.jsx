@@ -9,7 +9,7 @@ import Default from "../../../assets/userDefaultIMG.png";
 import { MdNotificationsNone } from "react-icons/md";
 
 function Header({ toggleNav }) {
-  const { data } = useContext(UserContext);
+  const { data, setSearch } = useContext(UserContext);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const handleLogout = () => {
     localStorage.clear();
@@ -31,7 +31,11 @@ function Header({ toggleNav }) {
       </div>
       <div className={style.search}>
         <FaSearch />
-        <input type="text" placeholder="Search Jobs" />
+        <input
+          type="text"
+          placeholder="Search Jobs"
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
+        />
       </div>
       <div
         className={style.profileContainer}

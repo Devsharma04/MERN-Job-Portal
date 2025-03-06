@@ -27,7 +27,12 @@ const createJob = async (req, res) => {
 
 const createdJobs = async (req, res) => {
   const { id } = req.user;
-  const jobs = await User.findById(id).populate("jobsCreated");
+  const jobs = await User.findById(id).populate({
+    path: "jobsCreated",
+    populate: {
+      path: "applicants", // Ensure applicants are also populated
+    },
+  });
 
   res.status(200).json(jobs.jobsCreated);
 };

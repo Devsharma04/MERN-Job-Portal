@@ -88,6 +88,14 @@ const LoginPage = () => {
             {" "}
             <p className={style.glow}>Forget Password ?</p>
           </Link>
+
+          <p>
+            Don't have an account ?{" "}
+            <Link to="/" className={style.glow}>
+              {" "}
+              Sign up
+            </Link>
+          </p>
         </form>
       </div>
     </div>

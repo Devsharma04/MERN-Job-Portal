@@ -5,6 +5,8 @@ import CreateJob from "./CreateJob/CreateJob";
 import Nav from "./SideBar&Header/Nav";
 import Header from "./SideBar&Header/Header";
 import Createdjobs from "./CreatedJobs/Createdjobs";
+import Profile from "./Profile/Profile";
+import Contact from "../Contact Us/ContactUs";
 function Dashboard() {
   const [isNavOpen, setIsNavOpen] = useState(false);
   return (
@@ -19,7 +21,8 @@ function Dashboard() {
           <Route index element={<Createdjobs />} />
           <Route path="/CreateJob" element={<CreateJob />} />
           <Route path="/CreatedJobs" element={<Createdjobs />} />
-          <Route path="/CreatedJobs" element={<Createdjobs />} />
+          <Route path="/Profile" element={<Profile />} />
+          <Route path="/ContactUs" element={<Contact />} />
         </Routes>
         <Outlet />
       </div>

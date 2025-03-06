@@ -57,24 +57,17 @@ function Nav({ isNavOpen }) {
           </Link>
         </div>
         <div>
-          <div
-            className={color === 5 ? style.active : style.btn}
-            onClick={() => setColor(5)}
-          >
-            <h1 className="flex items-center gap-8">
-              <BiSolidHelpCircle />
-              Contact Us
-            </h1>
-          </div>
-          <div
-            className={color === 6 ? style.active : style.btn}
-            onClick={() => setColor(6)}
-          >
-            <h1 className="flex items-center gap-8">
-              <FaSignOutAlt />
-              Sign Out
-            </h1>
-          </div>
+          <Link to="/RecuterDashboard/ContactUs">
+            <div
+              className={color === 5 ? style.active : style.btn}
+              onClick={() => setColor(5)}
+            >
+              <h1 className="flex items-center gap-8">
+                <BiSolidHelpCircle />
+                Contact Us
+              </h1>
+            </div>
+          </Link>
         </div>
       </div>
     </>

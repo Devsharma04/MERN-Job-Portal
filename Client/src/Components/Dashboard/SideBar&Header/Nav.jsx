@@ -54,7 +54,7 @@ function Nav({ isNavOpen }) {
               </h1>
             </div>
           </Link>
-          <Link to="/dashboard/settings">
+          {/* <Link to="/dashboard/settings">
             <div
               className={color === 4 ? style.active : style.btn}
               onClick={() => setColor(4)}
@@ -65,18 +65,20 @@ function Nav({ isNavOpen }) {
                 Settings
               </h1>
             </div>
-          </Link>
+          </Link> */}
         </div>
         <div>
-          <div
-            className={color === 5 ? style.active : style.btn}
-            onClick={() => setColor(5)}
-          >
-            <h1 className="flex items-center gap-8">
-              <BiSolidHelpCircle />
-              Contact Us
-            </h1>
-          </div>
+          <Link to="/dashboard/ContactUs">
+            <div
+              className={color === 5 ? style.active : style.btn}
+              onClick={() => setColor(5)}
+            >
+              <h1 className="flex items-center gap-8">
+                <BiSolidHelpCircle />
+                Contact Us
+              </h1>
+            </div>
+          </Link>
         </div>
       </div>
     </>
