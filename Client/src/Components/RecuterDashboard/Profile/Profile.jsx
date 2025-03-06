@@ -6,13 +6,19 @@ import UpdateProfile from "./UpdateProfile";
 import Default from "../../../assets/userDefaultIMG.png";
 import { MdOutlineEmail } from "react-icons/md";
 import { TbPhone } from "react-icons/tb";
+import { motion } from "framer-motion";
 function Profile() {
   const [modal, setModal] = useState(false);
   const { data } = useContext(UserContext);
 
   return (
     <>
-      <div className={style.container}>
+      <motion.div
+        className={style.container}
+        initial={{ width: 0 }}
+        animate={{ width: "100%" }}
+        exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+      >
         <div className={style.form}>
           <div className={style.profileSection}>
             <div className={style.img}>
@@ -38,7 +44,7 @@ function Profile() {
             </h1>
           </div>
         </div>
-      </div>
+      </motion.div>
       {modal && <UpdateProfile setModal={setModal} Dp={data.img} />}
     </>
   );

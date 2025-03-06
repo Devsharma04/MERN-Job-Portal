@@ -3,6 +3,8 @@ import { UserContext } from "../../../Context/UserDetailContext";
 import style from "./Home.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { motion } from "framer-motion";
+import { IoLocationSharp } from "react-icons/io5";
 
 function Home() {
   const { data, search } = useContext(UserContext);
@@ -18,7 +20,6 @@ function Home() {
       });
       setJobs(response.data.getData);
       setAppliedJobs(response.data.appliedJobs);
-      console.log(Jobs);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +57,12 @@ function Home() {
   }, []);
 
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    >
       <div className={style.heading}>
         <h1>Hi, {data.fname}!</h1>
         <p>
@@ -72,8 +78,13 @@ function Home() {
             <div key={index} className={style.card}>
               <h1 className={style.title}>{details.position}</h1>
               <h2 className={style.company}>{details.company}</h2>
-              <p className={style.location}>{details.location}</p>
-              <h4 className={style.salary}>Salary: {details.Salary}</h4>
+              <p className={style.location}>
+                <span>
+                  <IoLocationSharp />
+                </span>
+                {details.location}
+              </p>
+              <h4 className={style.salary}> Salary: ₹ {details.Salary}</h4>
               <p className={style.description}>{details.description}</p>
               {appliedJobs.includes(details._id) ? (
                 <button className={style.appliedBtn}>Applied</button>
@@ -89,7 +100,7 @@ function Home() {
           ))
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

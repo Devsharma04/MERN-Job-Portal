@@ -2,6 +2,7 @@ import React from "react";
 import style from "./contact.module.css";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { motion } from "framer-motion";
 function ContactUs() {
   const handleSendMessage = async (event) => {
     event.preventDefault();
@@ -19,7 +20,12 @@ function ContactUs() {
     }
   };
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    >
       <div className={style.formBox}>
         <h2>Contact Us</h2>
         <form onSubmit={handleSendMessage}>
@@ -57,7 +63,7 @@ function ContactUs() {
           </button>
         </form>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

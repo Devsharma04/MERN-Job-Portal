@@ -4,20 +4,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1rem;
 }
 
 .main {
-  height: 70vh;
-  width: 50%;
+  width: 90%;
+  max-width: 500px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 1.5rem;
   z-index: 1;
 }
+
 .main div {
   display: flex;
   flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .main div label {
@@ -40,6 +43,7 @@
 .main div input:focus {
   border-color: #007bff;
 }
+
 .loader {
   z-index: 100;
   position: absolute;
@@ -54,7 +58,7 @@
 .main button {
   width: 100%;
   padding: 0.8rem;
-  background-color: #007bff;
+  background-color: #4b49ac;
   color: white;
   font-size: 1rem;
   font-weight: bold;
@@ -66,5 +70,38 @@
 }
 
 .main button:hover {
-  background-color: #0056b3;
+  background-color: #3b3987;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .main {
+    width: 95%;
+    padding: 1rem;
+  }
+  .main div input {
+    padding: 0.6rem;
+  }
+  .main button {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    width: 100%;
+    padding: 0.8rem;
+  }
+  .main div label {
+    font-size: 0.9rem;
+  }
+  .main div input {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+  .main button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
 }

@@ -3,6 +3,7 @@ import style from "./Create.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
 import ClipLoader from "react-spinners/ClipLoader";
+import { motion } from "framer-motion";
 
 function CreateJob() {
   const [loading, setLoading] = useState(false);
@@ -31,7 +32,12 @@ function CreateJob() {
     }
   };
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    >
       {loading && (
         <div className={style.loader}>
           <ClipLoader color="#4b49ac" size={60} />
@@ -60,7 +66,7 @@ function CreateJob() {
         </div>
         <button type="submit">Create Job</button>
       </form>
-    </div>
+    </motion.div>
   );
 }
 

@@ -21,7 +21,7 @@
 }
 
 /* Heading */
-h2 {
+.formBox h2 {
   font-size: 24px;
   color: #333;
   margin-bottom: 20px;
@@ -57,7 +57,7 @@ h2 {
 /* Submit Button */
 .submitButton {
   width: 100%;
-  background: #007bff;
+  background: #4b49ac;
   color: white;
   padding: 12px;
   border: none;
@@ -68,7 +68,7 @@ h2 {
 }
 
 .submitButton:hover {
-  background: #0056b3;
+  background: #3b3987;
 }
 
 /* Responsive Design */

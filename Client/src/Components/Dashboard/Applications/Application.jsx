@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./Application.module.css";
-
+import { motion } from "framer-motion";
 function Application() {
   const [applications, setApplications] = useState([]);
 
@@ -16,7 +16,6 @@ function Application() {
         }
       );
       setApplications(response.data);
-      console.log(applications);
     } catch (error) {
       console.log(error);
     }
@@ -27,7 +26,12 @@ function Application() {
   }, []);
 
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    >
       <h2 className={style.heading}>Your Job Applications</h2>
 
       {applications.length === 0 ? (
@@ -49,7 +53,7 @@ function Application() {
           ))}
         </div>
       )}
-    </div>
+    </motion.div>
   );
 }
 

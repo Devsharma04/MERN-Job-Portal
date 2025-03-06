@@ -3,6 +3,7 @@ import { useEffect, useContext, useState } from "react";
 import style from "./Createdjobs.module.css";
 import { UserContext } from "../../../Context/UserDetailContext";
 import Applicants from "../Applicants/Applicants";
+import { motion } from "framer-motion";
 function Createdjobs() {
   const { jobData, fetchJobData, search } = useContext(UserContext);
   const [Modal, setModal] = useState(false);
@@ -34,7 +35,12 @@ function Createdjobs() {
   const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : jobData;
 
   return (
-    <div className={style.container}>
+    <motion.div
+      className={style.container}
+      initial={{ width: 0 }}
+      animate={{ width: "100%" }}
+      exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
+    >
       <h2 className={style.heading}>Jobs Created by You</h2>
 
       <div className={style.jobsList}>
@@ -73,7 +79,7 @@ function Createdjobs() {
         ))}
       </div>
       {Modal && <Applicants setModal={setModal} applicant={applicant} />}
-    </div>
+    </motion.div>
   );
 }
 
