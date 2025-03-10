@@ -8,6 +8,14 @@ import ClipLoader from "react-spinners/ClipLoader";
 function UpdateProfile({ setModal, Dp }) {
   const [loading, setLoading] = useState(false);
   const { fetchUserData } = useContext(UserContext);
+  const [previewImg, setPreviewImg] = useState(Dp || Default);
+
+  const handleImagePreview = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setPreviewImg(URL.createObjectURL(file));
+    }
+  };
   const handleUserUpdate = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -49,9 +57,15 @@ function UpdateProfile({ setModal, Dp }) {
           {" "}
           {/* used stopPropagation because without this if u click modal it will close because its under modalback div */}
           <div className={style.img}>
-            <input type="file" name="img" id="img" hidden />
+            <input
+              type="file"
+              name="img"
+              id="img"
+              onChange={handleImagePreview}
+              hidden
+            />
             <label htmlFor="img">
-              <img src={Dp ? Dp : Default} alt="" />
+              <img src={previewImg} alt="" />
             </label>
           </div>
           <form className={style.form} onSubmit={handleUserUpdate}>
