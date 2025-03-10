@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useContext, useState } from "react";
-import style from "./Createdjobs.module.css";
+import style from "./createdjobs.module.css";
 import { UserContext } from "../../../Context/UserDetailContext";
 import Applicants from "../Applicants/Applicants";
 import { motion } from "framer-motion";
