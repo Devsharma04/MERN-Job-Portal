@@ -13,11 +13,14 @@ export const UserProvider = ({ children }) => {
     if (!token) return;
 
     try {
-      const response = await axios.get("http://localhost:3000/api/getData", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}getData`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setData(response.data);
     } catch (error) {
       console.error("Error fetching user data:", error);
@@ -29,7 +32,7 @@ export const UserProvider = ({ children }) => {
 
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/CreatedJobs",
+        `${import.meta.env.VITE_SERVER_URL}CreatedJobs`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

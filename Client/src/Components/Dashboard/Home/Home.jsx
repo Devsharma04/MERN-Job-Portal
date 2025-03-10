@@ -13,11 +13,14 @@ function Home() {
 
   const getAllJobs = async () => {
     try {
-      const response = await axios.get("http://localhost:3000/api/alljobs", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        },
-      });
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}alljobs`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
       setJobs(response.data.getData);
       setAppliedJobs(response.data.appliedJobs);
     } catch (error) {
@@ -28,7 +31,7 @@ function Home() {
   const applyJob = async (id) => {
     try {
       const response = await axios.post(
-        `http://localhost:3000/api/apply/${id}`,
+        `${import.meta.env.VITE_SERVER_URL}apply/${id}`,
         {},
         {
           headers: {

@@ -27,7 +27,7 @@ function UpdateProfile({ setModal, Dp }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/profileUpdate",
+        `${import.meta.env.VITE_SERVER_URL}profileUpdate`,
         formdata,
         {
           headers: {

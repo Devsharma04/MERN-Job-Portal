@@ -14,7 +14,7 @@ function CreateJob() {
     const data = Object.fromEntries(formdata);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/createjob",
+        `${import.meta.env.VITE_SERVER_URL}createjob`,
         data,
         {
           headers: {

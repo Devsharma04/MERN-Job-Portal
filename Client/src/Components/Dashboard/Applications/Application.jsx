@@ -8,7 +8,7 @@ function Application() {
   const getApplications = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3000/api/applications",
+        `${import.meta.env.VITE_SERVER_URL}applications`,
         {
           headers: {
             Authorization: `Bearer ${localStorage.getItem("authToken")}`,

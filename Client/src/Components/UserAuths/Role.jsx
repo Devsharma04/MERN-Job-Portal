@@ -11,7 +11,7 @@ function Role() {
     const token = localStorage.getItem("authToken");
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/role",
+        `${import.meta.env.VITE_SERVER_URL}role`,
         { role },
         {
           headers: {

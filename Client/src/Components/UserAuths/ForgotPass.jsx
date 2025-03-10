@@ -18,7 +18,7 @@ function ForgotPass() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/reset-password",
+        `${import.meta.env.VITE_SERVER_URL}reset-password`,
         data
       );
       toast.success(response.data.message);
@@ -45,7 +45,7 @@ function ForgotPass() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/reset-password/",
+        `${import.meta.env.VITE_SERVER_URL}reset-password/`,
         verificationData
       );
       toast.success(response.data.message);
@@ -63,7 +63,7 @@ function ForgotPass() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/reset-password/",
+        `${import.meta.env.VITE_SERVER_URL}reset-password/`,
         { email: email, password: password },
         {
           // headers: {

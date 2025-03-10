@@ -11,7 +11,7 @@ function ContactUs() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/contactUs",
+        `${import.meta.env.VITE_SERVER_URL}contactUs`,
         data
       );
       toast.success(response.data.message);

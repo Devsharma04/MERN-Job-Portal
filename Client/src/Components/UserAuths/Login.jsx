@@ -26,7 +26,7 @@ const LoginPage = () => {
     console.log(data);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/login",
+        `${import.meta.env.VITE_SERVER_URL}login`,
         data
       );
       console.log("form submitted");

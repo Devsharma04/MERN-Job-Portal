@@ -8,7 +8,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 function UpdateProfile({ setModal, Dp }) {
   const [loading, setLoading] = useState(false);
   const { fetchUserData } = useContext(UserContext);
-  const { previewImg, setPreviewImg } = useState(Dp || Default);
+  const [previewImg, setPreviewImg] = useState(Dp || Default);
 
   const handleImagePreview = (e) => {
     const file = e.target.files[0];
@@ -27,7 +27,7 @@ function UpdateProfile({ setModal, Dp }) {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/profileUpdate",
+        `${import.meta.env.VITE_SERVER_URL}profileUpdate"`,
         formdata,
         {
           headers: {

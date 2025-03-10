@@ -22,7 +22,7 @@ function Main() {
     console.log(data);
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/signup",
+        `${import.meta.env.VITE_SERVER_URL}signup`,
         data
       );
       toast.success(response.data.message);

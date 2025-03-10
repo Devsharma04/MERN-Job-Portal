@@ -13,11 +13,14 @@ function Createdjobs() {
     const token = localStorage.getItem("authToken");
     if (!token) return;
     try {
-      await axios.delete(`http://localhost:3000/api/deletejob/${jobId}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      await axios.delete(
+        `${import.meta.env.VITE_SERVER_URL}deletejob/${jobId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       fetchUserData();
     } catch (error) {
       console.error("Error deleting job:", error);
