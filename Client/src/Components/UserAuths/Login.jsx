@@ -23,7 +23,7 @@ const LoginPage = () => {
 
     const formdata = new FormData(e.target);
     const data = Object.fromEntries(formdata);
-    console.log(data);
+
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_URL}login`,
@@ -35,7 +35,6 @@ const LoginPage = () => {
       fetchUserData();
       navigate(response.data.redirect);
     } catch (error) {
-      console.log("error in handel submit", error.message);
       toast.error(error.response?.data?.message || "An error occurred");
     }
   };
