@@ -8,9 +8,11 @@ import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
 import toast from "react-hot-toast";
 import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const LoginPage = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const { fetchUserData } = useContext(UserContext);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
@@ -20,7 +22,7 @@ const LoginPage = () => {
 
   const handelLogin = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const formdata = new FormData(e.target);
     const data = Object.fromEntries(formdata);
 
@@ -34,12 +36,18 @@ const LoginPage = () => {
       localStorage.setItem("authToken", token);
       fetchUserData();
       navigate(response.data.redirect);
+      setLoading(false);
     } catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
     }
   };
   return (
     <div className={style.container}>
+      {loading && (
+        <div className={style.loader}>
+          <ClipLoader color="#4b49ac" size={60} />
+        </div>
+      )}
       <CursorAnimation />
       <div className={style.videoContainer}>
         <video src={Jobdekho} autoPlay loop muted></video>

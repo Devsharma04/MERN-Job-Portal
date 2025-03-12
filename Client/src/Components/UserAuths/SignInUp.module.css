@@ -117,6 +117,16 @@ p span {
   text-shadow: 0 0 10px #fff, 0 0 10px #fff, 0 0 10px #133e87, 0 0 10px #133e87,
     0 0 10px #133e87, 0 0 10px #133e87, 0 0 10px #133e87;
 }
+.loader {
+  z-index: 100;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.338);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 
 @media (max-width: 768px) {
   .container {
