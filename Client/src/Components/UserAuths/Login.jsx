@@ -39,6 +39,8 @@ const LoginPage = () => {
       setLoading(false);
     } catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
+    } finally {
+      setLoading(false);
     }
   };
   return (

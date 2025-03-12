@@ -7,8 +7,10 @@ import { Link } from "react-router-dom";
 import CursorAnimation from "../Animation/CursorAnimation";
 import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
+import ClipLoader from "react-spinners/ClipLoader";
 function Main() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -30,10 +32,17 @@ function Main() {
     } catch (error) {
       console.log("error in handel submit", error.message);
       toast.error(error.response?.data?.message || "An error occurred");
+    } finally {
+      setLoading(false);
     }
   };
   return (
     <div className={style.container}>
+      {loading && (
+        <div className={style.loader}>
+          <ClipLoader color="#4b49ac" size={60} />
+        </div>
+      )}
       <CursorAnimation />
       <div className={style.videoContainer}>
         <video src={Jobdekho} autoPlay loop muted></video>
