@@ -40,6 +40,7 @@ function Home() {
   const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : Jobs;
 
   useEffect(() => {
+    getApplications();
     getAllJobs();
   }, []);
 
