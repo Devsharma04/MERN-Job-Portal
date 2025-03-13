@@ -65,7 +65,6 @@ export const UserProvider = ({ children }) => {
   };
   const getApplications = async () => {
     try {
-      setLoading(true);
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}applications`,
         {
@@ -78,7 +77,6 @@ export const UserProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
     }
-    setLoading(false);
   };
   useEffect(() => {
     fetchUserData();
