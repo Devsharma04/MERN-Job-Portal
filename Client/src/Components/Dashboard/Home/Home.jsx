@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import { IoLocationSharp } from "react-icons/io5";
 import SyncLoader from "react-spinners/SyncLoader";
 function Home() {
-  const { data, search, Jobs, getAllJobs, appliedJobs } =
+  const { data, search, Jobs, getAllJobs, appliedJobs, getApplications } =
     useContext(UserContext);
 
   const [loading, setLoading] = useState(false);
@@ -25,7 +25,7 @@ function Home() {
       );
 
       toast.success(response.data.message);
-      getAllJobs();
+      getApplications();
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "An error occurred");

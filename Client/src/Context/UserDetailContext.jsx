@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [Jobs, setJobs] = useState([]);
   const [appliedJobs, setAppliedJobs] = useState([]);
+  const [applications, setApplications] = useState([]);
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("authToken");
@@ -62,7 +63,23 @@ export const UserProvider = ({ children }) => {
       console.log(error);
     }
   };
-
+  const getApplications = async () => {
+    try {
+      setLoading(true);
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}applications`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
+      setApplications(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
+  };
   useEffect(() => {
     fetchUserData();
     fetchJobData();
@@ -71,6 +88,8 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
+        getApplications,
+        applications,
         data,
         Jobs,
         appliedJobs,

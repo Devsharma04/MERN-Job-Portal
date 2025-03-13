@@ -1,28 +1,10 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState, useContext } from "react";
+import { UserContext } from "../../../Context/UserDetailContext";
 import style from "./Application.module.css";
 import { motion } from "framer-motion";
-import SyncLoader from "react-spinners/SyncLoader";
+
 function Application() {
-  const [applications, setApplications] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const getApplications = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}applications`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        }
-      );
-      setApplications(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-    setLoading(false);
-  };
+  const { applications, getApplications } = useContext(UserContext);
 
   useEffect(() => {
     getApplications();
