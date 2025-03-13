@@ -17,11 +17,6 @@ function Application() {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
     >
-      {loading && (
-        <div className={style.loader}>
-          <SyncLoader color="#4b49ac" size={15} />
-        </div>
-      )}
       <h2 className={style.heading}>Your Job Applications</h2>
 
       {applications.length === 0 ? (
