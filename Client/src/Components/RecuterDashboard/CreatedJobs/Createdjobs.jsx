@@ -4,7 +4,7 @@ import style from "./createdjobs.module.css";
 import { UserContext } from "../../../Context/UserDetailContext";
 import Applicants from "../Applicants/Applicants";
 import { motion } from "framer-motion";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 function Createdjobs() {
   const { jobData, fetchJobData, search } = useContext(UserContext);
   const [Modal, setModal] = useState(false);
@@ -50,7 +50,7 @@ function Createdjobs() {
     >
       {loading && (
         <div className={style.loader}>
-          <ClipLoader color="#4b49ac" size={60} />
+          <SyncLoader color="#4b49ac" size={15} />
         </div>
       )}
       <h2 className={style.heading}>Jobs Created by You</h2>

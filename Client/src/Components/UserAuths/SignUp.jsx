@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 import CursorAnimation from "../Animation/CursorAnimation";
 import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 function Main() {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(!isPasswordVisible);
@@ -40,7 +40,7 @@ function Main() {
     <div className={style.container}>
       {loading && (
         <div className={style.loader}>
-          <ClipLoader color="#4b49ac" size={60} />
+          <SyncLoader color="#4b49ac" size={15} />
         </div>
       )}
       <CursorAnimation />

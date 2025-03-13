@@ -5,7 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { IoLocationSharp } from "react-icons/io5";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 function Home() {
   const { data, search } = useContext(UserContext);
   const [Jobs, setJobs] = useState([]);
@@ -70,7 +70,7 @@ function Home() {
     >
       {loading && (
         <div className={style.loader}>
-          <ClipLoader color="#4b49ac" size={60} />
+          <SyncLoader color="#4b49ac" size={15} />
         </div>
       )}
       <div className={style.heading}>

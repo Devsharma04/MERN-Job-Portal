@@ -4,7 +4,7 @@ import Default from "../../../assets/userDefaultIMG.png";
 import axios from "axios";
 import { UserContext } from "../../../Context/UserDetailContext";
 import toast from "react-hot-toast";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 function UpdateProfile({ setModal, Dp }) {
   const [loading, setLoading] = useState(false);
   const { fetchUserData } = useContext(UserContext);
@@ -50,7 +50,7 @@ function UpdateProfile({ setModal, Dp }) {
       <div className={style.modalback} onClick={() => setModal(false)}>
         {loading && (
           <div className={style.loader}>
-            <ClipLoader color="#4b49ac" size={60} />
+            <SyncLoader color="#4b49ac" size={15} />
           </div>
         )}
         <div className={style.modal} onClick={(e) => e.stopPropagation()}>

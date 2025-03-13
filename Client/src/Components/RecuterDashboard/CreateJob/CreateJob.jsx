@@ -2,7 +2,7 @@ import { useState } from "react";
 import style from "./Create.module.css";
 import axios from "axios";
 import toast from "react-hot-toast";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 import { motion } from "framer-motion";
 
 function CreateJob() {
@@ -40,7 +40,7 @@ function CreateJob() {
     >
       {loading && (
         <div className={style.loader}>
-          <ClipLoader color="#4b49ac" size={60} />
+          <SyncLoader color="#4b49ac" size={15} />
         </div>
       )}
       <form onSubmit={handelFromSubmit} className={style.main}>

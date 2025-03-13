@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./Application.module.css";
 import { motion } from "framer-motion";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 function Application() {
   const [applications, setApplications] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -37,7 +37,7 @@ function Application() {
     >
       {loading && (
         <div className={style.loader}>
-          <ClipLoader color="#4b49ac" size={60} />
+          <SyncLoader color="#4b49ac" size={15} />
         </div>
       )}
       <h2 className={style.heading}>Your Job Applications</h2>

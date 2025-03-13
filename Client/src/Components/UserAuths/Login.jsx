@@ -8,7 +8,7 @@ import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
 import toast from "react-hot-toast";
 import axios from "axios";
-import ClipLoader from "react-spinners/ClipLoader";
+import SyncLoader from "react-spinners/SyncLoader";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -47,7 +47,7 @@ const LoginPage = () => {
     <div className={style.container}>
       {loading && (
         <div className={style.loader}>
-          <ClipLoader color="#4b49ac" size={60} />
+          <SyncLoader color="#4b49ac" size={15} />
         </div>
       )}
       <CursorAnimation />
