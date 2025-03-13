@@ -1,4 +1,3 @@
-/* Container styling */
 .container {
   width: 100%;
   height: 100vh;
@@ -9,7 +8,6 @@
   margin-top: 4rem;
 }
 
-/* Heading styling */
 .heading {
   font-size: 1.8rem;
   font-weight: bold;
@@ -17,14 +15,12 @@
   margin-bottom: 20px;
 }
 
-/* Message when no applications are found */
 .noApplications {
   font-size: 1.2rem;
   color: #777;
   margin-top: 20px;
 }
 
-/* Flex container for job application cards */
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
@@ -32,7 +28,6 @@
   justify-content: center;
 }
 
-/* Individual job application card */
 .card {
   background: white;
   border-radius: 8px;
@@ -49,7 +44,6 @@
   transform: translateY(-5px);
 }
 
-/* Styling for job details */
 .company {
   font-size: 1.3rem;
   font-weight: bold;
@@ -71,6 +65,18 @@
 
 strong {
   color: #333;
+}
+.loader {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.338);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 /* 📱 Mobile responsiveness */

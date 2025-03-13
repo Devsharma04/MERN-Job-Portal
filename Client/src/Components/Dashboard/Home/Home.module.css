@@ -125,7 +125,18 @@
 .appliedBtn:hover {
   background-color: #3a378b;
 }
-
+.loader {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.338);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .heading h1 {

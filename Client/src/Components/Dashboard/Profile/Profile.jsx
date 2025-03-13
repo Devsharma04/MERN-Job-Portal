@@ -52,7 +52,9 @@ function Profile() {
             </div>
           </div>
           <div className={style.resume}>
-            <a href={data?.resume}>See Resume</a>
+            <a href={data?.resume} target="_blank">
+              See Resume
+            </a>
           </div>
         </div>
       </motion.div>

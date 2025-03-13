@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./applicants.module.css";
 import { FaWpforms } from "react-icons/fa";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
+
 function Applicants({ applicant, setModal }) {
   const [expandedApplicant, setExpandedApplicant] = useState(null);
 
@@ -52,11 +53,7 @@ function Applicants({ applicant, setModal }) {
                   {app.profile?.resume && (
                     <p>
                       <strong>Resume:</strong>{" "}
-                      <a
-                        href={app.profile.resume}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
+                      <a href={app.profile.resume} target="_blank">
                         View Resume
                       </a>
                     </p>

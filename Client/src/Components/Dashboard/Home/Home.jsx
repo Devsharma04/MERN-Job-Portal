@@ -5,14 +5,15 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { motion } from "framer-motion";
 import { IoLocationSharp } from "react-icons/io5";
-
+import ClipLoader from "react-spinners/ClipLoader";
 function Home() {
   const { data, search } = useContext(UserContext);
   const [Jobs, setJobs] = useState([]);
   const [appliedJobs, setAppliedJobs] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const getAllJobs = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}alljobs`,
         {
@@ -26,6 +27,7 @@ function Home() {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   const applyJob = async (id) => {
@@ -66,6 +68,11 @@ function Home() {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
     >
+      {loading && (
+        <div className={style.loader}>
+          <ClipLoader color="#4b49ac" size={60} />
+        </div>
+      )}
       <div className={style.heading}>
         <h1>Hi, {data.fname}!</h1>
         <p>

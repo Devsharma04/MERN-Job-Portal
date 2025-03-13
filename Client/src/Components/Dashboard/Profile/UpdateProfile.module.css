@@ -70,6 +70,8 @@
 }
 .loader {
   z-index: 100;
+  top: 0;
+  left: 0;
   position: absolute;
   background-color: rgba(0, 0, 0, 0.338);
   display: flex;

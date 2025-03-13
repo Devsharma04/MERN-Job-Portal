@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import style from "./Application.module.css";
 import { motion } from "framer-motion";
+import ClipLoader from "react-spinners/ClipLoader";
 function Application() {
   const [applications, setApplications] = useState([]);
-
+  const [loading, setLoading] = useState(false);
   const getApplications = async () => {
     try {
+      setLoading(true);
       const response = await axios.get(
         `${import.meta.env.VITE_SERVER_URL}applications`,
         {
@@ -19,6 +21,7 @@ function Application() {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -32,6 +35,11 @@ function Application() {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
     >
+      {loading && (
+        <div className={style.loader}>
+          <ClipLoader color="#4b49ac" size={60} />
+        </div>
+      )}
       <h2 className={style.heading}>Your Job Applications</h2>
 
       {applications.length === 0 ? (

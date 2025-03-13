@@ -4,14 +4,17 @@ import style from "./createdjobs.module.css";
 import { UserContext } from "../../../Context/UserDetailContext";
 import Applicants from "../Applicants/Applicants";
 import { motion } from "framer-motion";
+import ClipLoader from "react-spinners/ClipLoader";
 function Createdjobs() {
   const { jobData, fetchJobData, search } = useContext(UserContext);
   const [Modal, setModal] = useState(false);
   const [applicant, setApplicants] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const deleteJob = async (jobId) => {
     const token = localStorage.getItem("authToken");
     if (!token) return;
+    setLoading(true);
     try {
       await axios.delete(
         `${import.meta.env.VITE_SERVER_URL}deletejob/${jobId}`,
@@ -25,6 +28,7 @@ function Createdjobs() {
     } catch (error) {
       console.error("Error deleting job:", error);
     }
+    setLoading(false);
   };
   useEffect(() => {
     fetchJobData();
@@ -44,6 +48,11 @@ function Createdjobs() {
       animate={{ width: "100%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.1 } }}
     >
+      {loading && (
+        <div className={style.loader}>
+          <ClipLoader color="#4b49ac" size={60} />
+        </div>
+      )}
       <h2 className={style.heading}>Jobs Created by You</h2>
 
       <div className={style.jobsList}>

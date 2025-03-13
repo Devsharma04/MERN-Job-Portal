@@ -73,7 +73,6 @@
   background-color: #3b3987;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .main {
     width: 95%;

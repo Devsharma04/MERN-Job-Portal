@@ -1,4 +1,3 @@
-/* Container styling */
 .container {
   width: 100%;
   min-height: 100vh;
@@ -9,7 +8,6 @@
   padding: 2rem 1rem;
 }
 
-/* Heading */
 .heading {
   font-size: 2rem;
   font-weight: bold;
@@ -18,7 +16,6 @@
   text-align: center;
 }
 
-/* Job List - Responsive Grid */
 .jobsList {
   width: 90%;
   display: grid;
@@ -27,7 +24,6 @@
   justify-content: center;
 }
 
-/* Individual Job Card */
 .jobCard {
   background: white;
   z-index: 1;
@@ -63,24 +59,31 @@
   color: red;
   font-weight: 600;
 }
-/* Job description */
+
 .description {
   font-size: 0.95rem;
   color: #777;
   margin-top: 1rem;
 }
 
-/* Message when no jobs are available */
 .noJobs {
   font-size: 1.2rem;
   color: #888;
   margin-top: 2rem;
   text-align: center;
 }
-
-/* 🔥 Responsive Design */
-
-/* Tablets & Small Screens (768px - 1024px) */
+.loader {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.338);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 @media (max-width: 1024px) {
   .jobsList {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
