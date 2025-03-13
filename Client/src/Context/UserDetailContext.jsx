@@ -7,6 +7,8 @@ export const UserProvider = ({ children }) => {
   const [data, setData] = useState({});
   const [jobData, setJobData] = useState([]);
   const [search, setSearch] = useState("");
+  const [Jobs, setJobs] = useState([]);
+  const [appliedJobs, setAppliedJobs] = useState([]);
 
   const fetchUserData = async () => {
     const token = localStorage.getItem("authToken");
@@ -44,6 +46,22 @@ export const UserProvider = ({ children }) => {
       console.error("Error fetching Jobs:", error);
     }
   };
+  const getAllJobs = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_SERVER_URL}alljobs`,
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          },
+        }
+      );
+      setJobs(response.data.getData);
+      setAppliedJobs(response.data.appliedJobs);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     fetchUserData();
@@ -54,11 +72,14 @@ export const UserProvider = ({ children }) => {
     <UserContext.Provider
       value={{
         data,
+        Jobs,
+        appliedJobs,
         setData,
         fetchUserData,
         jobData,
         fetchJobData,
         setSearch,
+        getAllJobs,
         search,
       }}
     >

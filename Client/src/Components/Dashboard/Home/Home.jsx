@@ -7,28 +7,10 @@ import { motion } from "framer-motion";
 import { IoLocationSharp } from "react-icons/io5";
 import SyncLoader from "react-spinners/SyncLoader";
 function Home() {
-  const { data, search } = useContext(UserContext);
-  const [Jobs, setJobs] = useState([]);
-  const [appliedJobs, setAppliedJobs] = useState([]);
+  const { data, search, Jobs, getAllJobs, appliedJobs } =
+    useContext(UserContext);
+
   const [loading, setLoading] = useState(false);
-  const getAllJobs = async () => {
-    try {
-      setLoading(true);
-      const response = await axios.get(
-        `${import.meta.env.VITE_SERVER_URL}alljobs`,
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        }
-      );
-      setJobs(response.data.getData);
-      setAppliedJobs(response.data.appliedJobs);
-    } catch (error) {
-      console.log(error);
-    }
-    setLoading(false);
-  };
 
   const applyJob = async (id) => {
     try {
@@ -58,7 +40,13 @@ function Home() {
   const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : Jobs;
 
   useEffect(() => {
-    getAllJobs();
+    try {
+      setLoading(true);
+      getAllJobs();
+    } catch (error) {
+      console.log(error);
+    }
+    setLoading(false);
   }, []);
 
   return (
