@@ -9,6 +9,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 function Home() {
   const { data, search, Jobs, getAllJobs, appliedJobs } =
     useContext(UserContext);
+
   const [loading, setLoading] = useState(false);
 
   const applyJob = async (id) => {
@@ -39,13 +40,7 @@ function Home() {
   const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : Jobs;
 
   useEffect(() => {
-    setLoading(true);
-    getAllJobs()
-      .then(() => setLoading(false))
-      .catch((error) => {
-        console.log(error);
-        setLoading(false);
-      });
+    getAllJobs();
   }, []);
 
   return (

@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import style from "./Create.module.css";
 import axios from "axios";
+import { UserContext } from "../../../Context/UserDetailContext";
 import toast from "react-hot-toast";
 import SyncLoader from "react-spinners/SyncLoader";
 import { motion } from "framer-motion";
 
 function CreateJob() {
   const [loading, setLoading] = useState(false);
+  const [fetchJobData] = useContext(UserContext);
   const handelFromSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -23,6 +25,7 @@ function CreateJob() {
         }
       );
       toast.success(response.data.message);
+      fetchJobData();
       setLoading(false);
     } catch (error) {
       console.log(error);

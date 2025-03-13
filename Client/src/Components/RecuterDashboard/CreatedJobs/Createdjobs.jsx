@@ -31,13 +31,7 @@ function Createdjobs() {
     setLoading(false);
   };
   useEffect(() => {
-    try {
-      setLoading(true);
-      fetchJobData();
-    } catch (error) {
-      console.log(error);
-    }
-    setLoading(false);
+    fetchJobData();
   }, []);
 
   const filteredJobs = jobData.filter(
