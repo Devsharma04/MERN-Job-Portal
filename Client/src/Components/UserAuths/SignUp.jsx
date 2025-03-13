@@ -9,7 +9,7 @@ import { PiEyeClosedDuotone } from "react-icons/pi";
 import { IoMdEye } from "react-icons/io";
 import SyncLoader from "react-spinners/SyncLoader";
 function Main() {
-  const [isPasswordVisible, setIsPasswordVisible] = useState(true);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const togglePasswordVisibility = () => {
