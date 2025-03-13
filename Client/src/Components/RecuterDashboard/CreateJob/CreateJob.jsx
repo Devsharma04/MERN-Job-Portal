@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 
 function CreateJob() {
   const [loading, setLoading] = useState(false);
-  const [fetchJobData] = useContext(UserContext);
+  const { fetchJobData } = useContext(UserContext);
   const handelFromSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
