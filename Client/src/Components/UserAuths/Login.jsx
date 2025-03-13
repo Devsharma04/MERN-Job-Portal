@@ -31,7 +31,7 @@ const LoginPage = () => {
         `${import.meta.env.VITE_SERVER_URL}login`,
         data
       );
-      console.log("form submitted");
+
       const token = response.headers["authorization"].split("Bearer ")[1];
       localStorage.setItem("authToken", token);
       fetchUserData();
