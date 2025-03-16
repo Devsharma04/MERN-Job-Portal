@@ -24,7 +24,7 @@ function Createdjobs() {
           },
         }
       );
-      fetchUserData();
+       fetchJobData();
     } catch (error) {
       console.error("Error deleting job:", error);
     }
