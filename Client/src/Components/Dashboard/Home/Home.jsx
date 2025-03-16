@@ -11,8 +11,13 @@ function Home() {
     useContext(UserContext);
 
   const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    getApplications();
+    getAllJobs();
+  }, []);
 
   const applyJob = async (id) => {
+    setLoading(true);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_URL}apply/${id}`,
@@ -25,12 +30,13 @@ function Home() {
       );
 
       toast.success(response.data.message);
-      getAllJobs();
+      await getAllJobs();
       getApplications();
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "An error occurred");
     }
+    setLoading(false);
   };
 
   const filteredJobs = Jobs.filter(
@@ -39,11 +45,6 @@ function Home() {
       job.company?.toLowerCase().includes(search)
   );
   const jobToDisplay = filteredJobs.length > 0 ? filteredJobs : Jobs;
-
-  useEffect(() => {
-    getApplications();
-    getAllJobs();
-  }, []);
 
   return (
     <motion.div
@@ -90,7 +91,6 @@ function Home() {
                   Apply Now
                 </button>
               )}
-              {console.log(appliedJobs)}
             </div>
           ))
         )}
