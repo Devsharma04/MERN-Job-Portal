@@ -25,6 +25,7 @@ function Home() {
       );
 
       toast.success(response.data.message);
+      getAllJobs();
       getApplications();
     } catch (error) {
       console.log(error);
@@ -89,6 +90,7 @@ function Home() {
                   Apply Now
                 </button>
               )}
+              {console.log(appliedJobs)}
             </div>
           ))
         )}
