@@ -13,7 +13,7 @@ import SyncLoader from "react-spinners/SyncLoader";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const { fetchUserData } = useContext(UserContext);
+  const { fetchUserData, getAllJobs, fetchJobData } = useContext(UserContext);
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -35,6 +35,8 @@ const LoginPage = () => {
       const token = response.headers["authorization"].split("Bearer ")[1];
       localStorage.setItem("authToken", token);
       fetchUserData();
+      getAllJobs();
+      fetchJobData();
       navigate(response.data.redirect);
       setLoading(false);
     } catch (error) {
