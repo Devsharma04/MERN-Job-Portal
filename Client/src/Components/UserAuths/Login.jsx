@@ -34,9 +34,9 @@ const LoginPage = () => {
 
       const token = response.headers["authorization"].split("Bearer ")[1];
       localStorage.setItem("authToken", token);
-      fetchUserData();
-      getAllJobs();
-      fetchJobData();
+      await fetchUserData();
+      await getAllJobs();
+      await fetchJobData();
       navigate(response.data.redirect);
       setLoading(false);
     } catch (error) {
