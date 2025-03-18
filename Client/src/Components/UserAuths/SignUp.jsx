@@ -18,7 +18,7 @@ function Main() {
 
   const handelformsubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     const formdata = new FormData(e.target);
     const data = Object.fromEntries(formdata);
     console.log(data);

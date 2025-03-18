@@ -5,10 +5,13 @@ import CursorAnimation from "../Animation/CursorAnimation";
 import Jobdekho from "../../assets/JobDekho.mp4";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import SyncLoader from "react-spinners/SyncLoader";
 function Role() {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const handelonclick = async (role) => {
     const token = localStorage.getItem("authToken");
+    setLoading(true);
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_URL}role`,
@@ -24,6 +27,7 @@ function Role() {
     } catch (error) {
       toast.error(error.response?.data?.message || "An error occurred");
     }
+    setLoading(false);
   };
   return (
     <>
@@ -31,6 +35,11 @@ function Role() {
       <div className={style.videoContainer}>
         <video src={Jobdekho} autoPlay loop muted></video>
       </div>
+      {loading && (
+        <div className={style.loader}>
+          <SyncLoader color="#4b49ac" size={15} />
+        </div>
+      )}
       <div className={style.role}>
         <div className={style.left}>
           <p>

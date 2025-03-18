@@ -122,6 +122,18 @@ video {
     max-width: none;
   }
 }
+.loader {
+  z-index: 100;
+  top: 0;
+  left: 0;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.338);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
 
 @media (max-width: 768px) {
   .role {
