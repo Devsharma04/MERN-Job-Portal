@@ -41,7 +41,6 @@
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 10px;
-  transition: 0.3s;
 }
 
 .applicantCard:hover {
@@ -57,11 +56,18 @@
 }
 
 .applicantDetails {
-  margin-top: 8px;
-  padding: 10px;
+  max-height: 0;
+  padding-left: 10px;
+  overflow: hidden;
   border-top: 1px solid #ccc;
   background: #f0f4f8;
-  border-radius: 5px;
+  opacity: 0;
+  transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.applicantDetails.show {
+  max-height: 500px;
+  opacity: 1;
 }
 
 .applicantDetails p {

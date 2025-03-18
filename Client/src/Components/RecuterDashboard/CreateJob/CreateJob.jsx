@@ -25,8 +25,7 @@ function CreateJob() {
         }
       );
       toast.success(response.data.message);
-      fetchJobData();
-      setLoading(false);
+      await fetchJobData();
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data?.message || "An error occurred");

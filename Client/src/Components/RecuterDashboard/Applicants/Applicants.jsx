@@ -38,28 +38,30 @@ function Applicants({ applicant, setModal }) {
                 </button>
               </div>
 
-              {expandedApplicant === app._id && (
-                <div className={style.applicantDetails}>
+              <div
+                className={`${style.applicantDetails} ${
+                  expandedApplicant === app._id ? style.show : ""
+                }`}
+              >
+                <p>
+                  <strong>Email:</strong> <span>{app.email}</span>
+                </p>
+                <p>
+                  <strong>Phone:</strong> <span>{app.phone}</span>
+                </p>
+                <p>
+                  <strong>Skills:</strong>
+                  <span> {app.profile?.skills?.join(", ")}</span>
+                </p>
+                {app.profile?.resume && (
                   <p>
-                    <strong>Email:</strong> <span>{app.email}</span>
+                    <strong>Resume:</strong>{" "}
+                    <a href={app.profile.resume} target="_blank">
+                      View Resume
+                    </a>
                   </p>
-                  <p>
-                    <strong>Phone:</strong> <span>{app.phone}</span>
-                  </p>
-                  <p>
-                    <strong>Skills:</strong>
-                    <span> {app.profile?.skills?.join(", ")}</span>
-                  </p>
-                  {app.profile?.resume && (
-                    <p>
-                      <strong>Resume:</strong>{" "}
-                      <a href={app.profile.resume} target="_blank">
-                        View Resume
-                      </a>
-                    </p>
-                  )}
-                </div>
-              )}
+                )}
+              </div>
             </li>
           ))}
         </ul>
