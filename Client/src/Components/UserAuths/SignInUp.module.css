@@ -121,23 +121,25 @@ p span {
   z-index: 100;
   top: 0;
   left: 0;
-  position: absolute;
+  position: fixed; /* Changed from absolute to fixed */
   background-color: rgba(0, 0, 0, 0.338);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 100%;
+  height: 100vh; /* Cover full viewport */
+  width: 100vw;
 }
 
 @media (max-width: 768px) {
   .container {
-    height: 100%;
-    flex-wrap: wrap; /* Allow child elements to wrap */
-    flex-direction: column; /* Stack elements vertically */
-    width: 90%; /* Adjust width for smaller screens */
-    margin: 0 auto; /* Center the container */
+    height: auto;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 98vw;
+    min-width: 0;
+    margin: 0 auto;
     box-shadow: none;
+    border-radius: 0;
   }
   .videoContainer p {
     display: none;
@@ -145,23 +147,19 @@ p span {
   .videoContainer,
   .form {
     background-color: white;
-    width: 100%; /* Make each section take full width */
-    padding: 1rem; /* Add some padding for spacing */
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0;
   }
 
   video {
-    width: 50%; /* Make video responsive */
+    width: 50vw;
+    max-width: 100%;
     height: auto;
   }
 
-  .btn {
-    width: 5rem; /* Full-width button */
-    height: 2rem; /* Adjust height */
-    font-size: 0.8rem; /* Adjust font size */
-  }
-
   .form p {
-    text-align: center; /* Center-align text */
+    text-align: center;
   }
 }
 @media (max-width: 1024px) {
@@ -174,5 +172,24 @@ p span {
   .form {
     width: 100%; /* Make each section take full width */
     padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+    min-width: 0;
+    padding: 0;
+  }
+  .form,
+  .videoContainer {
+    padding: 0.5rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    height: 2rem;
+  }
+  .group2,
+  .group3 {
+    margin: 0.5rem;
   }
 }
